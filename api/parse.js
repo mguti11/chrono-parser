@@ -17,10 +17,9 @@ export default function handler(req, res) {
       return res.status(404).json({ error: 'No valid date found in transcript' });
     }
 
-    return res.status(200).json({
-      appointment_time: parsedDate.toISOString(),
-    });
-  } catch (error) {
-    return res.status(500).json({ error: { code: '500', message: 'A server error has occurred' } });
+    return res.status(200).json({ appointment_time: parsedDate.toISOString() });
+  } catch (err) {
+    console.error('Chrono error:', err);
+    return res.status(500).json({ error: { code: 500, message: 'A server error has occurred' } });
   }
 }
