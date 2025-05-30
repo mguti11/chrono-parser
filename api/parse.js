@@ -1,4 +1,4 @@
-import chrono from 'chrono-node';
+import * as chrono from 'chrono-node';
 
 export default function handler(req, res) {
   if (req.method !== 'POST') {
